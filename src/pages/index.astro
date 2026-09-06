@@ -1,0 +1,890 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const workItems = [
+	{
+		number: '01',
+		type: 'Experience',
+		title: 'DRAM Test Solution Engineer Intern',
+		meta: 'Micron · TSE-DRAM / Probe Global Central Team',
+		period: 'Linux · REST API · Backend · DRAM/HBM',
+		content: [
+			'Developed a Post Monitor Tool for DRAM/HBM Test Program post-release monitoring and revision comparison, analyzing wafer-level yield, bin distribution, and electrical test trends.',
+		],
+		highlights: [
+			'Built the backend and database pipeline in a Linux environment, handling large-scale test data through data parsing, processing, and ingestion for automated monitoring and analysis.',
+			'Implemented automated statistical analysis, anomaly detection, visualization, and alarm mechanisms to identify potential test issues and accelerate engineering root-cause analysis.',
+		],
+	},
+	{
+		number: '02',
+		type: 'Embedded Robotics',
+		title: 'Balloon Pop Bot: Embedded Vision-Guided Tracking Robot',
+		meta: 'Embedded robotics platform',
+		period: 'ROS · YOLOv8 · Edge Device',
+		content: [
+			'Developed an embedded robotics platform that combines edge-based computer vision, autonomous tracking, and physical actuation.',
+		],
+		highlights: [
+			'Integrated ROS with a lightweight YOLOv8 model on an edge device for real-time balloon detection and tracking.',
+			'Connected vision output to robot motion control for autonomous target pursuit.',
+			'Designed and integrated a servo-driven balloon-popping mechanism.',
+		],
+		links: [
+			{ label: 'Watch Demo', href: 'https://www.youtube.com/watch?v=YYZG2IyykVk' },
+			{ label: 'View on GitHub', href: 'https://github.com/linnnz19/Balloon-Pop-Bot-Embedded-Vision-Guided-Tracking-Robot' },
+			{ label: 'HackMD', href: 'https://hackmd.io/@suxMuBPuSgKN4_jZIzSXrw/BalloonPopBot_HungYiLin' },
+		],
+	},
+	{
+		number: '03',
+		type: 'Reinforcement Learning',
+		title: 'Actor-Critic & PPO Algorithms in Unity-Based Push Block Task',
+		meta: 'Multi-agent reinforcement learning simulation',
+		period: 'Unity · C# · PPO · A2C',
+		content: [
+			'Developed a multi-agent reinforcement learning simulation in Unity to evaluate cooperative physical tasks.',
+		],
+		highlights: [
+			'Designed custom C# reward shaping for time penalties and impulse transfer.',
+			'Applied PPO and A2C to jointly optimize individual navigation and multi-agent coordination.',
+			'Overcame the convergence failures observed in baseline DQN models within the cooperative environment.',
+		],
+		links: [
+			{ label: 'A2C Demo', href: 'https://www.youtube.com/watch?v=zhK_aJ8iDVg' },
+			{ label: 'PPO Demo', href: 'https://www.youtube.com/watch?v=NMPVtYbDH9A' },
+			{ label: 'View on GitHub', href: 'https://github.com/linnnz19/A-Implementation-Case-of-Actor-Critic-and-PPO-Algorithms-in-Unity-Based-Push-Block-Task' },
+		],
+	},
+	{
+		number: '04',
+		type: 'Evolutionary Computation',
+		title: 'Optimal Resource Allocation in Container-Based Environments Using Genetic Algorithms',
+		meta: 'Heterogeneous cluster simulation',
+		period: 'NSGA-II · Containers · Microservices',
+		content: [
+			'Developed a container-based resource allocation simulation system for heterogeneous clusters.',
+		],
+		highlights: [
+			'Modeled realistic cluster monitoring and microservice interactions.',
+			'Applied an NSGA-II–based multi-objective evolutionary algorithm to optimize communication overhead and node resource utilization.',
+			'Outperformed the traditional greedy algorithm by 37% in overall efficiency.',
+		],
+		links: [
+			{ label: 'View on GitHub', href: 'https://github.com/linnnz19/Resource-Allocation-Methods-in-Container-Based-Environment' },
+		],
+	},
+	{
+		number: '05',
+		type: 'Queueing Theory',
+		title: 'AoI Minimization in Single Source Node System',
+		meta: 'Queueing Theory course project',
+		period: 'Backward Dynamic Programming · MDP',
+		content: [
+			'Modeled an Age of Information minimization problem as a Markov Decision Problem for a Queueing Theory course project.',
+		],
+		highlights: [
+			'Simulated information freshness in a single-source system.',
+			'Implemented a backward dynamic programming algorithm.',
+			'Derived optimal policies using high-level dynamic programming principles.',
+		],
+		links: [
+			{ label: 'View on GitHub', href: 'https://github.com/linnnz19/AoI-Minimization-in-Single-Source-Node-System' },
+			{ label: 'View Report', href: '/Queueing_Theory_Project.pdf' },
+		],
+	},
+	{
+		number: '06',
+		type: 'NTPU Senior Project',
+		title: 'Incentive Design for Cooperative Cognitive Radio Networks',
+		meta: 'Cooperative cognitive radio networks',
+		period: 'Game Theory · Stackelberg Leading Model',
+		content: [
+			'Investigated incentive mechanisms for cooperative cognitive radio networks through a game-theoretic system model.',
+		],
+		highlights: [
+			'Analyzed network interactions using a Stackelberg leader–follower model.',
+			'Applied game theory to cooperative communication-system design.',
+			'Explored a transaction-free mechanism intended to maximize user satisfaction.',
+		],
+		links: [
+			{ label: 'View Poster', href: '/NTPU_senior_project_Otto%20Lin.pdf' },
+		],
+	},
+];
+
+const workPages = [workItems.slice(0, 3), workItems.slice(3, 6)];
+
+const gallery = [
+	{ src: '/images/landing/SCRL_0009.jpg', alt: 'Portrait at a café' },
+	{ src: '/images/landing/SCRL_0008.jpg', alt: 'Forest photography self-portrait' },
+	{ src: '/images/landing/SCRL_0007.jpg', alt: 'Iceland coastline travel journal' },
+	{ src: '/images/landing/SCRL_0006.jpg', alt: 'Blue winter landscape in Iceland' },
+	{ src: '/images/landing/SCRL_0005.jpg', alt: 'Exploring a glacier in Iceland' },
+	{ src: '/images/landing/SCRL_0004.jpg', alt: 'Travel memories in Budapest' },
+	{ src: '/images/landing/SCRL_0003.jpg', alt: 'The Matterhorn in Zermatt' },
+	{ src: '/images/landing/SCRL_0002.jpg', alt: 'Travel memories in Malta' },
+	{ src: '/images/landing/SCRL_0001.jpg', alt: 'Summer internship memories at Micron' },
+];
+---
+
+<Layout
+	title="Hung-Yi Lin — Electrical Engineering @ NCHU"
+	description="Hung-Yi Lin is an electrical engineering graduate student at NCHU interested in embedded systems, game theory, and end-to-end products."
+>
+	<header class="site-header">
+		<a class="brand" href="#top" aria-label="Ottolin, back to top">
+			<span aria-hidden="true"></span>Hung-Yi Lin
+		</a>
+		<nav aria-label="Primary navigation">
+			<a href="#about">About Me</a>
+			<a href="#projects">Projects</a>
+		</nav>
+		<button class="theme-toggle" type="button" aria-label="Switch color theme" data-theme-toggle>◐</button>
+	</header>
+
+	<main id="top">
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero-copy">
+				<h1 id="hero-title">Otto Lin</h1>
+				<p class="role">
+					<span>Department of Electrical Engineering @ NCHU</span>
+					<span>Ex-DRAM Test Solution Engineer Intern @ Micron</span>
+				</p>
+				<p class="intro">Maker. Photographer. Swimmer.</p>
+				<div class="quick-links" aria-label="Professional links">
+					<a href="/OttoLin_CV.pdf" target="_blank">CV</a>
+					<a href="https://www.linkedin.com/in/ottolin0419/" target="_blank" rel="noreferrer">LinkedIn</a>
+					<a href="mailto:ottolin1688@gmail.com">Email</a>
+					<a href="https://github.com/linnnz19" target="_blank" rel="noreferrer">Github</a>
+					<span class="pending-link" role="link" aria-disabled="true">Awards</span>
+				</div>
+			</div>
+
+			<div class="photo-carousel" data-carousel>
+				<div class="carousel-viewport" data-carousel-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="Selected moments">
+					<div class="carousel-track">
+						{gallery.map((photo, index) => (
+							<figure class="carousel-slide" data-carousel-slide aria-label={`${index + 1} of ${gallery.length}`}>
+								<img src={photo.src} alt={photo.alt} width="1200" height="1600" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" draggable="false" />
+							</figure>
+						))}
+					</div>
+				</div>
+				<div class="carousel-meta">
+					<p class="carousel-counter" aria-live="polite"><span data-carousel-current>01</span><span aria-hidden="true"> / </span><span>09</span></p>
+					<div class="carousel-dots" aria-label="Choose a photo">
+						{gallery.map((_, index) => (
+							<button type="button" data-carousel-dot aria-label={`Show photo ${index + 1}`} aria-current={index === 0 ? 'true' : 'false'}></button>
+						))}
+					</div>
+					<div class="carousel-controls">
+						<button type="button" data-carousel-prev aria-label="Previous photo">←</button>
+						<button type="button" data-carousel-next aria-label="Next photo">→</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="about-section" id="about" aria-labelledby="about-title">
+			<p class="section-label">I / About Me</p>
+			<div class="about-copy">
+				<h2 id="about-title">KHH, TW</h2>
+				<article class="about-letter" aria-label="A short introduction from Otto">
+					<div class="letter-meta">
+						<span>From</span><strong>Otto Lin</strong>
+						<span>Subject</span><strong>A little about me</strong>
+					</div>
+					<div class="letter-body">
+						<p class="letter-greeting">Dear Visitor,</p>
+						<p>Nice to meet you, I am Otto. Thanks for stopping by my little corner of the internet!</p>
+						<p>If I had to describe myself in three words, I'd say thoughtful, responsible, and always eager to learn. It's a mindset I try to bring into everything I do, whether I'm studying, working with others, or turning an idea into something real.</p>
+						<p>Beyond academics, you'll usually find me traveling, swimming, cooking, taking photographs, or carefully piecing together a Gunpla kit. At heart, I'm also a maker, always happiest when I'm soldering, coding, and turning small ideas into real, working things.</p>
+						<p>Thanks again for visiting! Please feel free to reach out anytime.</p>
+						<div class="email-code">
+							<a href="mailto:ottolin1688@gmail.com"><code>ottolin1688@gmail.com</code></a>
+							<button class="copy-email" type="button" data-copy-email aria-label="Copy email address" title="Copy email address">
+								<span class="copy-glyph" aria-hidden="true"><span></span><span></span></span>
+								<span class="copy-check" aria-hidden="true">✓</span>
+								<span class="visually-hidden" data-copy-label aria-live="polite">Copy email address</span>
+							</button>
+						</div>
+						<p class="letter-signature">Warmly,<br />Otto</p>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="focus-section" id="projects" aria-labelledby="focus-title">
+			<div class="section-title">
+				<p>II / Project & Experience</p>
+				<h2 id="focus-title">Things I've done...</h2>
+			</div>
+
+			<div class="work-carousel" data-work-carousel>
+				<div class="work-viewport" data-work-viewport tabindex="0" role="region" aria-roledescription="carousel" aria-label="Projects and experience">
+					<div class="work-track">
+						{workPages.map((page, pageIndex) => (
+							<div class="work-page" data-work-page aria-label={`Page ${pageIndex + 1} of ${workPages.length}`} aria-hidden={pageIndex !== 0 ? 'true' : 'false'} inert={pageIndex !== 0}>
+								<div class="work-list" data-work-accordion>
+									{page.map((item) => (
+										<details class="work-item" data-work-item>
+											<summary>
+												<span class="number">{item.number}</span>
+												<span class="work-heading">
+													<span class="type">{item.type}</span>
+													<h3>{item.title}</h3>
+												</span>
+												<span class="work-meta">
+													<span>{item.meta}</span>
+													<span class="tech-stack">{item.period}</span>
+												</span>
+												<span class="work-toggle" aria-hidden="true"><span></span><span></span></span>
+											</summary>
+											<div class:list={['work-body', item.highlights.length === 0 && 'work-body--single']}>
+												<div class="work-copy">
+													<div class="work-brief">
+														<span class="work-brief-label">Project brief</span>
+														{item.content.map((paragraph) => <p>{paragraph}</p>)}
+													</div>
+													{'links' in item && item.links && <div class="work-links" aria-label={`${item.title} resources`}>
+														{item.links.map((link) => (
+															<a href={link.href} target="_blank" rel="noreferrer">
+																<span>{link.label}</span><span aria-hidden="true">↗</span>
+															</a>
+														))}
+													</div>}
+												</div>
+												{item.highlights.length > 0 && <div class="work-highlights">
+													<span class="work-highlights-label">Key outcomes</span>
+													<ul>
+														{item.highlights.map((highlight) => <li><span class="outcome-mark" aria-hidden="true">✦</span><p>{highlight}</p></li>)}
+													</ul>
+												</div>}
+											</div>
+										</details>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<div class="work-pagination">
+					<div class="work-page-dots" aria-label="Choose a project page">
+						<button type="button" data-work-dot aria-label="Show projects 1 through 3" aria-current="true"><span>01—03</span></button>
+						<button type="button" data-work-dot aria-label="Show projects 4 through 6" aria-current="false"><span>04—06</span></button>
+					</div>
+					<p class="work-gesture" aria-hidden="true">Swipe to explore</p>
+					<div class="work-controls">
+						<button type="button" data-work-prev aria-label="Previous project page">←</button>
+						<button type="button" data-work-next aria-label="Next project page">→</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer>
+		<span>© {new Date().getFullYear()} Hung-Yi Lin</span>
+		<a href="#top">Back to top ↑</a>
+	</footer>
+
+	<script>
+		const root = document.documentElement;
+		const button = document.querySelector('[data-theme-toggle]');
+		const saved = localStorage.getItem('portfolio-theme');
+		if (saved === 'light') root.dataset.theme = 'light';
+		button?.addEventListener('click', () => {
+			const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+			root.dataset.theme = next;
+			localStorage.setItem('portfolio-theme', next);
+		});
+
+		const copyEmailButton = document.querySelector('[data-copy-email]');
+		const copyEmailLabel = copyEmailButton?.querySelector('[data-copy-label]');
+		let copyResetTimer = 0;
+		copyEmailButton?.addEventListener('click', async () => {
+			if (!(copyEmailButton instanceof HTMLButtonElement) || !(copyEmailLabel instanceof HTMLElement)) return;
+			try {
+				await navigator.clipboard.writeText('ottolin1688@gmail.com');
+				copyEmailLabel.textContent = 'Email address copied';
+				copyEmailButton.setAttribute('aria-label', 'Email address copied');
+				copyEmailButton.setAttribute('title', 'Copied');
+				copyEmailButton.dataset.state = 'copied';
+			} catch {
+				copyEmailLabel.textContent = 'Unable to copy email address';
+				copyEmailButton.setAttribute('aria-label', 'Unable to copy email address');
+				copyEmailButton.setAttribute('title', 'Unable to copy');
+			}
+			window.clearTimeout(copyResetTimer);
+			copyResetTimer = window.setTimeout(() => {
+				copyEmailLabel.textContent = 'Copy email address';
+				copyEmailButton.setAttribute('aria-label', 'Copy email address');
+				copyEmailButton.setAttribute('title', 'Copy email address');
+				delete copyEmailButton.dataset.state;
+			}, 1800);
+		});
+
+			document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+			const viewport = carousel.querySelector('[data-carousel-viewport]');
+			const slides = [...carousel.querySelectorAll('[data-carousel-slide]')];
+			const dots = [...carousel.querySelectorAll('[data-carousel-dot]')];
+			const currentLabel = carousel.querySelector('[data-carousel-current]');
+			const previousButton = carousel.querySelector('[data-carousel-prev]');
+			const nextButton = carousel.querySelector('[data-carousel-next]');
+			const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+			let currentIndex = 0;
+			let scrollFrame = 0;
+			let dragging = false;
+			let dragStartX = 0;
+			let dragStartScroll = 0;
+			let targetIndex = null;
+			let viewportWidth = viewport.clientWidth;
+
+			if (!(viewport instanceof HTMLElement)) return;
+
+			const updateUI = (index) => {
+				currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+				if (currentLabel) currentLabel.textContent = String(currentIndex + 1).padStart(2, '0');
+				dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === currentIndex)));
+				if (previousButton instanceof HTMLButtonElement) previousButton.disabled = currentIndex === 0;
+				if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex === slides.length - 1;
+				slides.forEach((slide, slideIndex) => slide.setAttribute('aria-hidden', String(slideIndex !== currentIndex)));
+			};
+
+			const goTo = (index, behavior = 'smooth') => {
+				const nextIndex = Math.max(0, Math.min(index, slides.length - 1));
+				targetIndex = nextIndex;
+				viewport.scrollTo({ left: nextIndex * viewport.clientWidth, behavior: reduceMotion.matches ? 'auto' : behavior });
+				updateUI(nextIndex);
+			};
+
+			previousButton?.addEventListener('click', () => goTo(currentIndex - 1));
+			nextButton?.addEventListener('click', () => goTo(currentIndex + 1));
+			dots.forEach((dot, index) => dot.addEventListener('click', () => goTo(index)));
+
+			viewport.addEventListener('keydown', (event) => {
+				if (!(event instanceof KeyboardEvent)) return;
+				if (event.key === 'ArrowLeft') { event.preventDefault(); goTo(currentIndex - 1); }
+				if (event.key === 'ArrowRight') { event.preventDefault(); goTo(currentIndex + 1); }
+				if (event.key === 'Home') { event.preventDefault(); goTo(0); }
+				if (event.key === 'End') { event.preventDefault(); goTo(slides.length - 1); }
+			});
+
+			viewport.addEventListener('scroll', () => {
+				cancelAnimationFrame(scrollFrame);
+				scrollFrame = requestAnimationFrame(() => {
+					if (targetIndex !== null) {
+						const reachedTarget = Math.abs(viewport.scrollLeft - targetIndex * viewport.clientWidth) < 2;
+						if (reachedTarget) targetIndex = null;
+						return;
+					}
+					const index = Math.round(viewport.scrollLeft / viewport.clientWidth);
+					if (index !== currentIndex) updateUI(index);
+				});
+			}, { passive: true });
+
+			viewport.addEventListener('pointerdown', (event) => {
+				targetIndex = null;
+				if (!(event instanceof PointerEvent) || event.pointerType === 'touch') return;
+				dragging = true;
+				dragStartX = event.clientX;
+				dragStartScroll = viewport.scrollLeft;
+				viewport.classList.add('is-dragging');
+				viewport.setPointerCapture(event.pointerId);
+			});
+
+			viewport.addEventListener('pointermove', (event) => {
+				if (!dragging || !(event instanceof PointerEvent)) return;
+				viewport.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+			});
+
+			const finishDrag = (event) => {
+				if (!dragging) return;
+				dragging = false;
+				viewport.classList.remove('is-dragging');
+				if (event instanceof PointerEvent && viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+				goTo(Math.round(viewport.scrollLeft / viewport.clientWidth));
+			};
+
+			viewport.addEventListener('pointerup', finishDrag);
+			viewport.addEventListener('pointercancel', finishDrag);
+			viewport.addEventListener('touchstart', () => { targetIndex = null; }, { passive: true });
+			viewport.addEventListener('wheel', () => { targetIndex = null; }, { passive: true });
+
+			const resizeObserver = new ResizeObserver(() => {
+				const nextWidth = viewport.clientWidth;
+				if (Math.abs(nextWidth - viewportWidth) < 1) return;
+				const visibleIndex = viewportWidth > 0
+					? Math.round(viewport.scrollLeft / viewportWidth)
+					: currentIndex;
+				viewportWidth = nextWidth;
+				goTo(visibleIndex, 'auto');
+			});
+			resizeObserver.observe(viewport);
+			updateUI(0);
+		});
+
+		document.querySelectorAll('[data-work-carousel]').forEach((carousel) => {
+			const viewport = carousel.querySelector('[data-work-viewport]');
+			const pages = [...carousel.querySelectorAll('[data-work-page]')];
+			const dots = [...carousel.querySelectorAll('[data-work-dot]')];
+			const previousButton = carousel.querySelector('[data-work-prev]');
+			const nextButton = carousel.querySelector('[data-work-next]');
+			const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+			let currentIndex = 0;
+			let scrollFrame = 0;
+			let targetIndex = null;
+
+			if (!(viewport instanceof HTMLElement) || pages.length === 0) return;
+
+			const fitActivePage = () => {
+				const page = pages[currentIndex];
+				if (page instanceof HTMLElement) viewport.style.height = `${page.scrollHeight}px`;
+			};
+
+			const updateUI = (index) => {
+				const nextIndex = Math.max(0, Math.min(index, pages.length - 1));
+				if (nextIndex !== currentIndex) {
+					const departingPage = pages[currentIndex];
+					departingPage?.querySelectorAll('details[open]').forEach((item) => item.removeAttribute('open'));
+				}
+				currentIndex = nextIndex;
+				dots.forEach((dot, dotIndex) => dot.setAttribute('aria-current', String(dotIndex === currentIndex)));
+				pages.forEach((page, pageIndex) => {
+					page.setAttribute('aria-hidden', String(pageIndex !== currentIndex));
+					page.toggleAttribute('inert', pageIndex !== currentIndex);
+				});
+				if (previousButton instanceof HTMLButtonElement) previousButton.disabled = currentIndex === 0;
+				if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex === pages.length - 1;
+				requestAnimationFrame(fitActivePage);
+			};
+
+			const goTo = (index, behavior = 'smooth') => {
+				const nextIndex = Math.max(0, Math.min(index, pages.length - 1));
+				targetIndex = nextIndex;
+				viewport.scrollTo({ left: nextIndex * viewport.clientWidth, behavior: reduceMotion.matches ? 'auto' : behavior });
+				updateUI(nextIndex);
+			};
+
+			previousButton?.addEventListener('click', () => goTo(currentIndex - 1));
+			nextButton?.addEventListener('click', () => goTo(currentIndex + 1));
+			dots.forEach((dot, index) => dot.addEventListener('click', () => goTo(index)));
+
+			viewport.addEventListener('keydown', (event) => {
+				if (!(event instanceof KeyboardEvent)) return;
+				if (event.key === 'ArrowLeft') { event.preventDefault(); goTo(currentIndex - 1); }
+				if (event.key === 'ArrowRight') { event.preventDefault(); goTo(currentIndex + 1); }
+				if (event.key === 'Home') { event.preventDefault(); goTo(0); }
+				if (event.key === 'End') { event.preventDefault(); goTo(pages.length - 1); }
+			});
+
+			viewport.addEventListener('scroll', () => {
+				cancelAnimationFrame(scrollFrame);
+				scrollFrame = requestAnimationFrame(() => {
+					if (targetIndex !== null) {
+						const reachedTarget = Math.abs(viewport.scrollLeft - targetIndex * viewport.clientWidth) < 2;
+						if (reachedTarget) targetIndex = null;
+						return;
+					}
+					const index = Math.round(viewport.scrollLeft / viewport.clientWidth);
+					if (index !== currentIndex) updateUI(index);
+				});
+			}, { passive: true });
+
+			viewport.addEventListener('touchstart', () => { targetIndex = null; }, { passive: true });
+			viewport.addEventListener('wheel', (event) => {
+				if (event instanceof WheelEvent && Math.abs(event.deltaX) > Math.abs(event.deltaY)) targetIndex = null;
+			}, { passive: true });
+
+			const resizeObserver = new ResizeObserver(fitActivePage);
+			pages.forEach((page) => resizeObserver.observe(page));
+			window.addEventListener('resize', () => {
+				viewport.scrollTo({ left: currentIndex * viewport.clientWidth, behavior: 'auto' });
+				fitActivePage();
+			}, { passive: true });
+			updateUI(0);
+			document.fonts?.ready.then(fitActivePage);
+		});
+
+		document.querySelectorAll('[data-work-accordion]').forEach((accordion) => {
+			const items = [...accordion.querySelectorAll('[data-work-item]')].filter((item): item is HTMLDetailsElement => item instanceof HTMLDetailsElement);
+			const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+			const intendedState = new WeakMap<HTMLDetailsElement, boolean>();
+			const itemAnimations = new WeakMap<HTMLDetailsElement, Animation>();
+			const contentAnimations = new WeakMap<HTMLDetailsElement, Animation>();
+
+			const animateItem = (item: HTMLDetailsElement, shouldOpen: boolean) => {
+				const summary = item.querySelector('summary');
+				const body = item.querySelector('.work-body');
+				if (!(summary instanceof HTMLElement) || !(body instanceof HTMLElement)) return;
+
+				itemAnimations.get(item)?.cancel();
+				contentAnimations.get(item)?.cancel();
+				const startHeight = item.offsetHeight;
+				intendedState.set(item, shouldOpen);
+
+				if (shouldOpen) item.open = true;
+				if (reduceMotion.matches) {
+					item.open = shouldOpen;
+					item.style.height = '';
+					item.style.overflow = '';
+					return;
+				}
+
+				const endHeight = shouldOpen ? summary.offsetHeight + body.scrollHeight : summary.offsetHeight;
+				item.style.height = `${startHeight}px`;
+				item.style.overflow = 'clip';
+				item.style.willChange = 'height';
+
+				const itemAnimation = item.animate(
+					{ height: [`${startHeight}px`, `${endHeight}px`] },
+					{ duration: shouldOpen ? 460 : 360, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+				);
+				const contentAnimation = body.animate(
+					shouldOpen
+						? [{ opacity: 0, transform: 'translateY(-0.4rem)' }, { opacity: 1, transform: 'translateY(0)' }]
+						: [{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-0.25rem)' }],
+					{ duration: shouldOpen ? 340 : 190, delay: shouldOpen ? 70 : 0, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'both' },
+				);
+
+				itemAnimations.set(item, itemAnimation);
+				contentAnimations.set(item, contentAnimation);
+				itemAnimation.addEventListener('finish', () => {
+					if (itemAnimations.get(item) !== itemAnimation) return;
+					item.open = shouldOpen;
+					contentAnimation.cancel();
+					item.style.height = '';
+					item.style.overflow = '';
+					item.style.willChange = '';
+					itemAnimations.delete(item);
+					contentAnimations.delete(item);
+				});
+			};
+
+			items.forEach((item) => {
+				intendedState.set(item, item.open);
+				const summary = item.querySelector('summary');
+				summary?.addEventListener('click', (event) => {
+					event.preventDefault();
+					const shouldOpen = !intendedState.get(item);
+					if (shouldOpen) {
+						items.forEach((otherItem) => {
+							if (otherItem !== item && intendedState.get(otherItem)) animateItem(otherItem, false);
+						});
+					}
+					animateItem(item, shouldOpen);
+				});
+				});
+			});
+		</script>
+</Layout>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700&display=swap');
+
+	:global(:root) {
+		--bg: #0b0b10;
+		--surface: #15141b;
+		--text: #eeebf0;
+		--muted: #9c98a3;
+		--line: rgba(202, 195, 211, 0.15);
+		--accent: #81738f;
+		--accent-light: #829da2;
+		--role: #b9afc1;
+		--hero-start: #ded9e3;
+		--hero-mid: #a092aa;
+		--hero-end: #789398;
+		--ambient: rgba(112, 86, 139, 0.12);
+		--ambient-secondary: rgba(80, 119, 126, 0.07);
+		--control-hover: rgba(129, 115, 143, 0.14);
+		--inverse-bg: #e9e6eb;
+		--inverse-text: #17161b;
+		--inverse-muted: #706b75;
+		--inverse-line: rgba(23, 22, 27, 0.15);
+		--inverse-accent: #6d5f79;
+		--pad: clamp(1.25rem, 5vw, 5rem);
+		--sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+		color-scheme: dark;
+		scroll-behavior: smooth;
+	}
+
+	:global(:root[data-theme='light']) {
+		--bg: #e9e7eb;
+		--surface: #f3f1f4;
+		--text: #232128;
+		--muted: #6e6974;
+		--line: rgba(45, 40, 52, 0.14);
+		--accent: #655b73;
+		--accent-light: #506f75;
+		--role: #5f566b;
+		--hero-start: #2e2b35;
+		--hero-mid: #685e75;
+		--hero-end: #526f74;
+		--ambient: rgba(100, 85, 118, 0.1);
+		--ambient-secondary: rgba(74, 111, 116, 0.08);
+		--control-hover: rgba(101, 91, 115, 0.1);
+		--inverse-bg: #25232b;
+		--inverse-text: #efedf1;
+		--inverse-muted: #aaa5af;
+		--inverse-line: rgba(239, 237, 241, 0.15);
+		--inverse-accent: #b8a8c5;
+		color-scheme: light;
+	}
+
+	:global(*) { box-sizing: border-box; }
+	:global(html) { background: var(--bg); font-size: 110%; scroll-snap-type: y mandatory; }
+	:global(body) {
+		margin: 0;
+		background:
+			radial-gradient(circle at 82% 6%, var(--ambient), transparent 30rem),
+			radial-gradient(circle at 12% 94%, var(--ambient-secondary), transparent 34rem),
+			var(--bg);
+		color: var(--text);
+		font-family: var(--sans);
+		font-size: 1rem;
+		line-height: 1.5;
+		-webkit-font-smoothing: antialiased;
+	}
+	:global(a) { color: inherit; }
+	:global(::selection) { background: var(--accent); color: #fff; }
+	:global(:focus-visible) { outline: 2px solid var(--accent); outline-offset: 5px; }
+	:global(main > section) { min-height: 100svh; scroll-snap-align: start; }
+
+	.site-header {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10;
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		align-items: center;
+		width: 100%;
+		padding: 1.6rem var(--pad);
+		font-family: var(--mono);
+		font-size: 0.75rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+	.brand { display: inline-flex; align-items: center; gap: 0.65rem; width: max-content; font-weight: 700; text-decoration: none; }
+	.brand span { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--accent); }
+	.site-header nav { display: flex; gap: 2rem; }
+	.site-header nav a { position: relative; padding: 0.55rem 0.1rem; text-decoration: none; transition: color 200ms ease; }
+	.site-header nav a::after { position: absolute; right: 0.1rem; bottom: 0.32rem; left: 0.1rem; height: 1px; background: var(--accent-light); content: ''; transform: scaleX(0); transform-origin: right; transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+	.site-header nav a:hover, .site-header nav a:focus-visible { color: var(--accent-light); outline: none; }
+	.site-header nav a:hover::after, .site-header nav a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+	.theme-toggle { justify-self: end; display: grid; place-items: center; width: 2.35rem; height: 2.35rem; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.95fr);
+		gap: clamp(3rem, 8vw, 9rem);
+		align-items: center;
+		min-height: 100svh;
+		padding: 7rem var(--pad) 3.5rem;
+	}
+	.section-title > p, .section-label, .carousel-counter {
+		font-family: var(--mono);
+		font-size: 0.75rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+	.hero h1 {
+		width: max-content;
+		margin: 0;
+		background: linear-gradient(105deg, var(--hero-start) 4%, var(--hero-mid) 56%, var(--hero-end));
+		background-clip: text;
+		color: transparent;
+		font-family: 'Exo 2', var(--sans);
+		font-size: clamp(2.6rem, 4.1vw, 4.65rem);
+		font-style: normal;
+		font-weight: 700;
+		line-height: 0.9;
+		letter-spacing: -0.045em;
+		white-space: nowrap;
+	}
+	.role { display: grid; gap: 0.12rem; max-width: 48rem; margin: 1.5rem 0 0; color: var(--role); font-family: var(--mono); font-size: clamp(0.82rem, 0.76rem + 0.18vw, 0.9rem); font-weight: 500; line-height: 1.65; letter-spacing: 0.075em; text-transform: uppercase; }
+	.role span { display: block; }
+	.intro { max-width: 38rem; margin: 0.8rem 0 2rem; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.15rem); }
+	.quick-links { display: flex; flex-wrap: wrap; gap: 0.35rem 1.15rem; align-items: center; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+	.quick-links a, .quick-links .pending-link { padding: 0.72rem 0.15rem; text-decoration: none; }
+	.quick-links a { position: relative; transition: color 200ms ease; }
+	.quick-links a::after { position: absolute; right: 0.15rem; bottom: 0.48rem; left: 0.15rem; height: 1px; background: var(--accent-light); content: ''; transform: scaleX(0); transform-origin: right; transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
+	.quick-links a:hover, .quick-links a:focus-visible { color: var(--accent-light); outline: none; }
+	.quick-links a:hover::after, .quick-links a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+	.quick-links .pending-link { color: var(--muted); cursor: default; }
+
+	.photo-carousel { width: min(100%, 29rem); min-width: 0; justify-self: end; }
+	.carousel-viewport { position: relative; overflow-x: auto; border: 1px solid var(--line); border-radius: 1.35rem; background: var(--surface); box-shadow: 0 1.8rem 5rem rgba(0, 0, 0, 0.28); cursor: grab; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; touch-action: auto; -webkit-overflow-scrolling: touch; }
+	.carousel-viewport::-webkit-scrollbar { display: none; }
+	.carousel-viewport.is-dragging { cursor: grabbing; scroll-behavior: auto; scroll-snap-type: none; }
+	.carousel-track { display: flex; }
+	.carousel-slide { position: relative; flex: 0 0 100%; aspect-ratio: 3 / 4; margin: 0; overflow: hidden; scroll-snap-align: start; scroll-snap-stop: always; }
+	.carousel-slide img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; }
+	.carousel-meta { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; padding-top: 1rem; }
+	.carousel-counter { min-width: 3.5rem; margin: 0; color: var(--muted); }
+	.carousel-dots { display: flex; justify-content: center; gap: 0.4rem; }
+	.carousel-dots button { width: 0.34rem; height: 0.34rem; padding: 0; border: 0; border-radius: 999px; background: var(--muted); opacity: 0.42; cursor: pointer; transition: width 220ms ease, opacity 220ms ease, background 220ms ease; }
+	.carousel-dots button[aria-current='true'] { width: 1rem; background: var(--accent-light); opacity: 1; }
+	.carousel-controls { display: flex; gap: 0.5rem; }
+	.carousel-controls button { display: grid; place-items: center; width: 2.55rem; height: 2.55rem; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--text); font-size: 1rem; cursor: pointer; transition: border-color 180ms ease, background 180ms ease, opacity 180ms ease, transform 180ms ease; }
+	.carousel-controls button:hover:not(:disabled) { border-color: var(--accent); background: var(--control-hover); transform: translateY(-2px); }
+	.carousel-controls button:disabled { opacity: 0.3; cursor: default; }
+
+	.focus-section { --inverse-bg: var(--bg); --inverse-text: var(--text); --inverse-muted: var(--muted); --inverse-line: var(--line); --inverse-accent: var(--accent-light); --work-section-gap: clamp(2.75rem, 5vw, 4.25rem); position: relative; padding: clamp(5rem, 10vw, 9rem) var(--pad); background: var(--bg); color: var(--text); }
+	.section-title { display: grid; grid-template-columns: 1fr; gap: 0.7rem; max-width: 72rem; margin-bottom: var(--work-section-gap); }
+	.section-title > p, .section-label { margin: 0.5rem 0 0; }
+	.section-title > p { color: var(--muted); font-weight: 500; letter-spacing: 0.085em; }
+	.section-title h2 { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', var(--sans); font-size: clamp(2.35rem, 4.2vw, 4.1rem); font-weight: 600; line-height: 1; letter-spacing: -0.047em; }
+	.about-section h2 { margin: 0; font-size: clamp(3.1rem, 7vw, 7rem); font-weight: 500; line-height: 0.9; letter-spacing: -0.065em; }
+	.work-carousel { width: 100%; }
+	.work-viewport { width: 100%; overflow-x: auto; overflow-y: clip; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; transition: height 360ms cubic-bezier(0.22, 1, 0.36, 1); overscroll-behavior-x: contain; }
+	.work-viewport::-webkit-scrollbar { display: none; }
+	.work-viewport:focus-visible { outline: 1px solid var(--inverse-accent); outline-offset: 0.6rem; }
+	.work-track { display: flex; align-items: flex-start; width: 100%; }
+	.work-page { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; scroll-snap-stop: always; }
+	.work-list { border-top: 1px solid var(--line); }
+	.work-item { border-bottom: 1px solid var(--line); }
+	.work-item summary { display: grid; grid-template-columns: 3.2rem minmax(0, 1.65fr) minmax(13rem, 0.85fr) 2.75rem; gap: 1.4rem; align-items: center; padding: 2rem 0; list-style: none; cursor: pointer; }
+	.work-item summary::-webkit-details-marker { display: none; }
+	.number, .type, .work-meta { font-family: var(--mono); }
+	.number { align-self: start; padding-top: 0.2rem; color: var(--muted); font-size: 0.75rem; }
+	.work-heading { display: grid; gap: 0.45rem; }
+	.type { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.09em; text-transform: uppercase; }
+	.work-heading h3 { max-width: 52rem; margin: 0; font-size: clamp(1.04rem, 1.35vw, 1.42rem); font-weight: 450; line-height: 1.22; letter-spacing: -0.022em; transition: color 180ms ease; }
+	.work-meta { display: grid; gap: 0.35rem; color: var(--muted); font-size: 0.76rem; line-height: 1.5; }
+	.work-meta span:last-child { color: var(--inverse-accent); }
+	.tech-stack { display: inline-flex; gap: 0.5rem; align-items: center; width: max-content; max-width: 100%; animation: tech-breathe 3.8s ease-in-out infinite; }
+	.tech-stack::before { flex: 0 0 auto; width: 0.28rem; height: 0.28rem; border-radius: 50%; background: var(--inverse-accent); box-shadow: 0 0 0.55rem color-mix(in srgb, var(--inverse-accent) 52%, transparent); content: ''; animation: tech-signal 3.8s ease-in-out infinite; }
+	@keyframes tech-breathe { 0%, 100% { opacity: 0.72; filter: saturate(0.78); text-shadow: 0 0 0 transparent; } 50% { opacity: 1; filter: saturate(1.08); text-shadow: 0 0 0.7rem color-mix(in srgb, var(--inverse-accent) 38%, transparent); } }
+	@keyframes tech-signal { 0%, 100% { opacity: 0.52; transform: scale(0.82); } 50% { opacity: 1; transform: scale(1.08); } }
+	.work-toggle { position: relative; width: 2.65rem; height: 2.65rem; border: 1px solid var(--line); border-radius: 50%; transition: border-color 180ms ease, transform 260ms ease; }
+	.work-toggle span { position: absolute; top: 50%; left: 50%; width: 0.75rem; height: 1px; background: currentColor; transform: translate(-50%, -50%); }
+	.work-toggle span:last-child { transform: translate(-50%, -50%) rotate(90deg); transition: transform 220ms ease; }
+	.work-item summary:hover .work-heading h3, .work-item[open] .work-heading h3 { color: var(--inverse-accent); }
+	.work-item summary:hover .work-toggle { border-color: var(--inverse-accent); }
+	.work-item[open] .work-toggle { border-color: var(--inverse-accent); }
+	.work-item[open] .work-toggle span:last-child { transform: translate(-50%, -50%) rotate(0); }
+	.work-body { display: grid; grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.25fr); gap: clamp(2rem, 4vw, 4rem); align-items: start; padding: 0.55rem 4.15rem 2.75rem 4.6rem; }
+	.work-body--single { grid-template-columns: minmax(0, 52rem); }
+	.work-copy { display: grid; gap: 1rem; }
+	.work-copy p { max-width: 52rem; margin: 0; font-size: clamp(0.92rem, 1vw, 1.02rem); line-height: 1.65; }
+	.work-brief { position: relative; display: grid; gap: 0.65rem; max-width: 47rem; padding: 1.15rem 1.3rem 1.25rem; border: 1px solid var(--line); border-radius: 1.2rem 1.2rem 1.2rem 0.28rem; background: color-mix(in srgb, var(--inverse-accent) 7%, var(--surface)); box-shadow: 0 0.9rem 2.4rem rgba(0, 0, 0, 0.08); }
+	.work-brief::after { position: absolute; bottom: -0.38rem; left: 1.35rem; width: 0.7rem; height: 0.7rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: inherit; content: ''; transform: rotate(45deg); }
+	.work-brief-label { color: var(--inverse-accent); font-family: var(--mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; }
+	.work-brief p { color: var(--inverse-text); font-size: clamp(0.9rem, 0.95vw, 1rem); line-height: 1.58; text-wrap: pretty; }
+	.work-links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.3rem; }
+	.work-links a { display: inline-flex; gap: 0.65rem; align-items: center; justify-content: space-between; max-width: 100%; padding: 0.48rem 0.65rem; border: 1px solid var(--line); border-radius: 999px; color: var(--inverse-text); font-family: var(--mono); font-size: 0.64rem; line-height: 1.25; letter-spacing: 0.02em; text-decoration: none; transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease; }
+	.work-links a span:last-child { color: var(--inverse-accent); }
+	.work-links a:hover { border-color: var(--inverse-text); background: var(--inverse-text); color: var(--inverse-bg); transform: translateY(-1px); }
+	.work-links a:hover span:last-child { color: inherit; }
+	.work-highlights { display: grid; gap: 0.85rem; padding-left: clamp(1.35rem, 2.4vw, 2.4rem); border-left: 1px solid var(--line); }
+	.work-highlights-label { color: var(--inverse-accent); font-family: var(--mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; }
+	.work-highlights ul { display: grid; margin: 0; padding: 0; color: var(--muted); list-style: none; }
+	.work-highlights li { display: grid; grid-template-columns: 1.25rem minmax(0, 1fr); gap: 0.75rem; align-items: start; padding: 0.8rem 0 0.9rem; border-top: 1px solid var(--line); }
+	.outcome-mark { padding-top: 0.08rem; color: var(--inverse-accent); font-size: 0.76rem; line-height: 1.55; text-align: center; }
+	.work-highlights li p { margin: 0; font-size: clamp(0.88rem, 0.95vw, 0.98rem); line-height: 1.55; text-wrap: pretty; }
+	.work-pagination { display: grid; grid-template-columns: minmax(12rem, 28rem) 1fr auto; gap: 1.4rem; align-items: center; padding-top: var(--work-section-gap); }
+	.work-gesture { margin: 0; color: var(--muted); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; }
+	.work-page-dots { display: grid; grid-template-columns: repeat(2, 1fr); }
+	.work-page-dots button { position: relative; min-height: 2.5rem; padding: 0.7rem 0 0; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--muted); font-family: var(--mono); font-size: 0.67rem; letter-spacing: 0.05em; text-align: left; cursor: pointer; transition: color 240ms ease; }
+	.work-page-dots button::before { position: absolute; top: -1px; right: 100%; left: 0; height: 2px; background: var(--inverse-accent); content: ''; transition: right 480ms cubic-bezier(0.22, 1, 0.36, 1); }
+	.work-page-dots button[aria-current='true'] { color: var(--inverse-text); }
+	.work-page-dots button[aria-current='true']::before { right: 0; }
+	.work-gesture { justify-self: end; }
+	.work-controls { display: flex; gap: 0.55rem; }
+	.work-controls button { display: grid; place-items: center; width: 2.85rem; height: 2.85rem; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--inverse-text); font-size: 1rem; cursor: pointer; transition: color 200ms ease, background 200ms ease, border-color 200ms ease, opacity 200ms ease, transform 200ms ease; }
+	.work-controls button:hover:not(:disabled) { border-color: var(--inverse-text); background: var(--inverse-text); color: var(--inverse-bg); transform: translateY(-2px); }
+	.work-controls button:disabled { opacity: 0.28; cursor: default; }
+
+	.about-section { --line: var(--inverse-line); --muted: var(--inverse-muted); position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 3fr; gap: 2rem; align-content: center; padding: clamp(5rem, 8vw, 7.5rem) var(--pad); border-top: 1px solid var(--line); background: var(--inverse-bg); box-shadow: 0 -1.5rem 4rem rgba(0, 0, 0, 0.12), 0 1.5rem 4rem rgba(0, 0, 0, 0.16); color: var(--inverse-text); }
+	.about-section > div { max-width: 65rem; }
+	.about-section h2 { margin: 0 0 clamp(2rem, 4vw, 3.5rem); color: var(--inverse-accent); font-size: clamp(1.9rem, 3.2vw, 3.35rem); font-weight: 500; line-height: 0.95; letter-spacing: -0.055em; }
+	.about-letter { max-width: 48rem; border-top: 1px solid var(--line); }
+	.letter-meta { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: 0.2rem 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 0.66rem; line-height: 1.5; }
+	.letter-meta span { color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+	.letter-meta strong { color: var(--inverse-text); font-weight: 500; }
+	.letter-body { display: grid; gap: 0.9rem; margin-top: 1.35rem; padding-left: clamp(1rem, 2vw, 1.65rem); border-left: 1px solid var(--line); }
+	.letter-body p { max-width: 43rem; margin: 0; color: var(--muted); font-size: clamp(0.96rem, 1.35vw, 1.12rem); line-height: 1.62; text-wrap: pretty; }
+	.letter-body .letter-greeting, .letter-body .letter-signature { color: var(--inverse-text); }
+	.letter-greeting { font-weight: 500; }
+	.email-code { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; width: min(100%, 24rem); margin: 0.2rem 0; overflow: hidden; border: 1px solid var(--line); border-radius: 0.6rem; background: color-mix(in srgb, var(--inverse-accent) 7%, var(--inverse-bg)); }
+	.email-code a { min-width: 0; padding: 0.72rem 0.85rem; overflow: hidden; color: var(--inverse-accent); font-family: var(--mono); font-size: 0.72rem; text-decoration: none; text-overflow: ellipsis; white-space: nowrap; }
+	.copy-email { position: relative; display: grid; place-items: center; align-self: stretch; width: 2.8rem; min-height: 2.65rem; padding: 0; border: 0; border-left: 1px solid var(--line); background: transparent; color: var(--inverse-text); cursor: pointer; transition: color 180ms ease, background 180ms ease; }
+	.copy-email:hover { background: var(--inverse-text); color: var(--inverse-bg); }
+	.copy-glyph { position: relative; width: 0.88rem; height: 0.88rem; }
+	.copy-glyph span { position: absolute; width: 0.66rem; height: 0.66rem; border: 1px solid currentColor; border-radius: 0.1rem; }
+	.copy-glyph span:first-child { top: 0; right: 0; }
+	.copy-glyph span:last-child { bottom: 0; left: 0; background: inherit; }
+	.copy-check { display: none; color: var(--inverse-accent); font-size: 0.9rem; }
+	.copy-email[data-state='copied'] .copy-glyph { display: none; }
+	.copy-email[data-state='copied'] .copy-check { display: block; }
+	.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+	.letter-signature { padding-top: 0.25rem; font-family: var(--mono); font-size: 0.76rem !important; }
+
+	footer { display: flex; min-height: max(5.5rem, calc(4.5rem + env(safe-area-inset-bottom))); align-items: center; justify-content: space-between; padding: 1.5rem var(--pad) max(1.5rem, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; scroll-snap-align: end; scroll-snap-stop: always; }
+	footer a { color: var(--text); text-decoration: none; }
+
+	@media (max-width: 850px) {
+		:global(html) { scroll-snap-type: none; }
+		.hero { grid-template-columns: 1fr; padding-top: 9rem; }
+		.photo-carousel { width: min(100%, 28rem); justify-self: center; margin-top: 1rem; }
+		.about-section { grid-template-columns: 1fr; gap: 2rem; }
+		.work-item summary { grid-template-columns: 3rem minmax(0, 1fr) 2.65rem; gap: 1rem; }
+		.work-meta { grid-column: 2; }
+		.work-toggle { grid-column: 3; grid-row: 1 / span 2; }
+		.work-body { grid-template-columns: 1fr; gap: 1.8rem; padding-left: 4rem; }
+		.work-highlights { gap: 0.7rem; padding: 1.25rem 0 0; border-top: 1px solid var(--line); border-left: 0; }
+		.work-pagination { grid-template-columns: minmax(10rem, 1fr) auto; }
+		.work-gesture { display: none; }
+	}
+
+	@media (max-width: 560px) {
+		.site-header {
+			grid-template-areas:
+				'brand toggle'
+				'nav nav';
+			grid-template-columns: 1fr auto;
+			row-gap: 0.65rem;
+			padding-top: 1.15rem;
+		}
+		.site-header .brand { grid-area: brand; }
+		.site-header nav { grid-area: nav; display: flex; gap: 0.45rem; justify-self: start; }
+		.site-header nav a { padding: 0.38rem 0.7rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+		.site-header nav a::after { display: none; }
+		.theme-toggle { grid-area: toggle; }
+		.hero { min-height: auto; padding-top: 9.25rem; padding-bottom: 5rem; }
+		.hero h1 { font-size: clamp(1.95rem, 9.2vw, 3.15rem); }
+		.role { margin-top: 1.4rem; font-size: clamp(0.62rem, 2.8vw, 0.72rem); line-height: 1.55; letter-spacing: 0.02em; white-space: nowrap; }
+		.intro { margin-top: 0.8rem; }
+		.photo-carousel { width: min(100%, 24rem); }
+		.carousel-meta { gap: 0.65rem; padding-top: 0.8rem; }
+		.carousel-dots { gap: 0.3rem; }
+		.carousel-controls button { width: 2.35rem; height: 2.35rem; }
+		.work-item summary { grid-template-columns: 2rem minmax(0, 1fr) 2.35rem; gap: 0.75rem; padding: 1.5rem 0; }
+		.work-heading h3 { font-size: clamp(1.02rem, 4.5vw, 1.27rem); line-height: 1.25; }
+		.work-toggle { width: 2.3rem; height: 2.3rem; }
+		.work-body { gap: 1.35rem; padding: 0 0 1.8rem 2.75rem; }
+		.work-brief { gap: 0.55rem; padding: 1rem 1.05rem 1.1rem; border-radius: 1rem 1rem 1rem 0.25rem; }
+		.work-pagination { gap: 0.8rem; }
+		.work-page-dots button { min-height: 2.25rem; font-size: 0.62rem; }
+		.work-controls { gap: 0.4rem; }
+		.work-controls button { width: 2.45rem; height: 2.45rem; }
+		.about-section h2 { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+	}
+
+	@media (max-width: 370px) {
+		.role { font-size: 0.56rem; letter-spacing: 0; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(:root) { scroll-behavior: auto; }
+		.carousel-viewport, .work-viewport { scroll-behavior: auto; transition: none; }
+		.carousel-dots button, .carousel-controls button, .work-page-dots button, .work-page-dots button::before, .work-controls button { transition: none; }
+		.tech-stack, .tech-stack::before { animation: none; }
+		.work-heading h3, .work-toggle, .work-toggle span, .work-links a, .quick-links a, .quick-links a::after, .site-header nav a, .site-header nav a::after, .copy-email { transition: none; }
+	}
+</style>
