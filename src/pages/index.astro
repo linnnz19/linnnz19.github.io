@@ -157,7 +157,6 @@ const gallery = [
 					<a href="https://www.linkedin.com/in/ottolin0419/" target="_blank" rel="noreferrer">LinkedIn</a>
 					<a href="mailto:ottolin1688@gmail.com">Email</a>
 					<a href="https://github.com/linnnz19" target="_blank" rel="noreferrer">Github</a>
-					<span class="pending-link" role="link" aria-disabled="true">Awards</span>
 				</div>
 			</div>
 
@@ -197,7 +196,8 @@ const gallery = [
 					</div>
 					<div class="letter-body">
 						<p class="letter-greeting">Dear Visitor,</p>
-						<p>Nice to meet you, I am Otto. Thanks for stopping by my little corner of the internet!</p>
+						<p>Nice to meet you here! This is Otto speaking.</p>
+						<p>Thanks for stopping by my little corner of the internet &gt;&lt;</p>
 						<p>If I had to describe myself in three words, I'd say thoughtful, responsible, and always eager to learn. It's a mindset I try to bring into everything I do, whether I'm studying, working with others, or turning an idea into something real.</p>
 						<p>Beyond academics, you'll usually find me traveling, swimming, cooking, taking photographs, or carefully piecing together a Gunpla kit. At heart, I'm also a maker, always happiest when I'm soldering, coding, and turning small ideas into real, working things.</p>
 						<p>Thanks again for visiting! Please feel free to reach out anytime.</p>
@@ -710,12 +710,11 @@ const gallery = [
 	.role span { display: block; }
 	.intro { max-width: 38rem; margin: 0.8rem 0 2rem; color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.15rem); }
 	.quick-links { display: flex; flex-wrap: wrap; gap: 0.35rem 1.15rem; align-items: center; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
-	.quick-links a, .quick-links .pending-link { padding: 0.72rem 0.15rem; text-decoration: none; }
+	.quick-links a { padding: 0.72rem 0.15rem; text-decoration: none; }
 	.quick-links a { position: relative; transition: color 200ms ease; }
 	.quick-links a::after { position: absolute; right: 0.15rem; bottom: 0.48rem; left: 0.15rem; height: 1px; background: var(--accent-light); content: ''; transform: scaleX(0); transform-origin: right; transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1); }
 	.quick-links a:hover, .quick-links a:focus-visible { color: var(--accent-light); outline: none; }
 	.quick-links a:hover::after, .quick-links a:focus-visible::after { transform: scaleX(1); transform-origin: left; }
-	.quick-links .pending-link { color: var(--muted); cursor: default; }
 
 	.photo-carousel { width: min(100%, 29rem); min-width: 0; justify-self: end; }
 	.carousel-viewport { position: relative; overflow-x: auto; border: 1px solid var(--line); border-radius: 1.35rem; background: var(--surface); box-shadow: 0 1.8rem 5rem rgba(0, 0, 0, 0.28); cursor: grab; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; touch-action: auto; -webkit-overflow-scrolling: touch; }
