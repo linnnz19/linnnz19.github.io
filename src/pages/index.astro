@@ -196,7 +196,7 @@ const gallery = [
 					</div>
 					<div class="letter-body">
 						<p class="letter-greeting">Dear Visitor,</p>
-						<p>Nice to meet you here! I'm Otto. Thanks for stopping by my little corner of the internet &gt;&lt;</p>
+						<p class="letter-intro">Nice to meet you here! I'm Otto. Thanks for stopping by my little corner of the <span class="no-wrap">internet &gt;&lt;</span></p>
 						<p>If I had to describe myself in three words, I'd say thoughtful, responsible, and always eager to learn. It's a mindset I try to bring into everything I do, whether I'm studying, working with others, or turning an idea into something real.</p>
 						<p>Beyond academics, you'll usually find me traveling, swimming, cooking, taking photographs, or carefully piecing together a Gunpla kit. At heart, I'm also a maker, always happiest when I'm soldering, coding, and turning small ideas into real, working things.</p>
 						<p>Thanks again for visiting! Please feel free to reach out anytime.</p>
@@ -807,6 +807,8 @@ const gallery = [
 	.letter-meta strong { color: var(--inverse-text); font-weight: 500; }
 	.letter-body { display: grid; gap: 0.9rem; margin-top: 1.35rem; padding-left: clamp(1rem, 2vw, 1.65rem); border-left: 1px solid var(--line); }
 	.letter-body p { max-width: 43rem; margin: 0; color: var(--muted); font-size: clamp(0.96rem, 1.35vw, 1.12rem); line-height: 1.62; text-wrap: pretty; }
+	.letter-body .letter-intro { max-width: 46rem; text-wrap: balance; }
+	.no-wrap { white-space: nowrap; }
 	.letter-body .letter-greeting, .letter-body .letter-signature { color: var(--inverse-text); }
 	.letter-greeting { font-weight: 500; }
 	.email-code { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; width: min(100%, 24rem); margin: 0.2rem 0; overflow: hidden; border: 1px solid var(--line); border-radius: 0.6rem; background: color-mix(in srgb, var(--inverse-accent) 7%, var(--inverse-bg)); }
